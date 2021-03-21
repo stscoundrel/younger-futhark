@@ -1,16 +1,14 @@
 import { getRuneMapping } from './mappings/rune-mapping';
 import { getLetterMapping } from './mappings/letter-mapping';
 
-export const lettersToRunes = (content: string) : string => {
+const transform = (content: string, dictionary: Map<string, string>) : string => {
   let result = '';
+  const parts: string[] = content.split('');
 
-  const letterMapping = getLetterMapping();
-  const letters: string[] = content.split('');
-
-  letters.forEach((letter) => {
-    if (letterMapping.has(letter)) {
-      result += letterMapping.get(letter);
-    } else if (letter === ' ') {
+  parts.forEach((part) => {
+    if (dictionary.has(part)) {
+      result += dictionary.get(part);
+    } else if (part === ' ') {
       result += ' ';
     }
   });
@@ -18,19 +16,16 @@ export const lettersToRunes = (content: string) : string => {
   return result;
 };
 
+export const lettersToRunes = (content: string) : string => {
+  const letterMapping = getLetterMapping();
+  const result = transform(content, letterMapping);
+
+  return result;
+};
+
 export const runesToLetters = (content: string) : string => {
-  let result = '';
-
   const runeMapping = getRuneMapping();
-  const runes: string[] = content.split('');
-
-  runes.forEach((rune) => {
-    if (runeMapping.has(rune)) {
-      result += runeMapping.get(rune);
-    } else if (rune === ' ') {
-      result += ' ';
-    }
-  });
+  const result = transform(content, runeMapping);
 
   return result;
 };
