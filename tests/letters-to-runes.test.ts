@@ -1,6 +1,15 @@
 import youngerFuthark from '../src';
 
 describe('Letters to runes transformation tests', () => {
+  test('Ignores not-found letters', () => {
+    const falseLetters = '12345';
+    const expected = '';
+
+    const result = youngerFuthark.lettersToRunes(falseLetters);
+
+    expect(result).toBe(expected);
+  });
+
   test('Transforms letters to runes', () => {
     const letters = 'fuþark';
     const expected = 'ᚠᚢᚦᛅᚱᚴ';
