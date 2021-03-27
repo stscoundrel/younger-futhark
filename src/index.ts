@@ -6,10 +6,12 @@ const transform = (content: string, dictionary: Map<string, string>) : string =>
   const parts: string[] = content.split('');
 
   parts.forEach((part) => {
-    if (dictionary.has(part)) {
-      result += dictionary.get(part);
-    } else if (part === ' ') {
-      result += ' ';
+    const partKey = part.toLocaleLowerCase();
+
+    if (dictionary.has(partKey)) {
+      result += dictionary.get(partKey);
+    } else {
+      result += part;
     }
   });
 
