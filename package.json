@@ -41,6 +41,7 @@
     "test:unit": "yarn jest",
     "test:mutation": "stryker run",
     "test:coverage": "jest --coverage --coverageThreshold='{\"global\":{\"statements\":\"90\", \"functions\":\"90\", \"branches\":\"90\", \"lines\":\"90\"}}'",
+    "test": "yarn test:unit",
     "build": "tsc",
     "prepublishOnly": "yarn build && yarn test"
   }
