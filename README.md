@@ -2,6 +2,8 @@
 
 Transform latin letters to Younger Futhark runes & vice versa
 
+See also [Elder Futhark](https://github.com/stscoundrel/elder-futhark) version.
+
 ### Install
 
 `yarn add younger-futhark`
