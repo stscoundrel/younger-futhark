@@ -21,7 +21,7 @@ describe('Letters to runes transformation tests', () => {
   test('Transforms full sentence to runes', () => {
     // From Old Groms runestone.
     const letters = 'auk tani karþi kristna';
-    const expected = 'ᛅᚢᚴ ᛏᛅᚾᛁ ᚴᛅᚱᚦᛁ ᚴᚱᛁᛋᛏᚾᛅ';
+    const expected = 'ᛅᚢᚴ:ᛏᛅᚾᛁ:ᚴᛅᚱᚦᛁ:ᚴᚱᛁᛋᛏᚾᛅ';
 
     const result = youngerFuthark.lettersToRunes(letters);
 
@@ -31,7 +31,7 @@ describe('Letters to runes transformation tests', () => {
   test('Transforms upper & lowercase to same runes', () => {
     // From Old Groms runestone.
     const letters = 'AUK tani Karþi kriSTnA';
-    const expected = 'ᛅᚢᚴ ᛏᛅᚾᛁ ᚴᛅᚱᚦᛁ ᚴᚱᛁᛋᛏᚾᛅ';
+    const expected = 'ᛅᚢᚴ:ᛏᛅᚾᛁ:ᚴᛅᚱᚦᛁ:ᚴᚱᛁᛋᛏᚾᛅ';
 
     const result = youngerFuthark.lettersToRunes(letters);
 
@@ -49,7 +49,7 @@ describe('Letters to runes transformation tests', () => {
   });
 
   test('Leaves non-matched letters unchanged.', () => {
-    const expected = 'ᛅᚾᛏ ᛚᚢ; "ᚼᛁ" ᛋᛒᚢᚴᛁ ᛁᚾ ᚱᛁᛏᛏᛚᛁᛋ.';
+    const expected = 'ᛅᚾᛏ:ᛚᚢ;:"ᚼᛁ":ᛋᛒᚢᚴᛁ:ᛁᚾ:ᚱᛁᛏᛏᛚᛁᛋ.';
 
     const result = youngerFuthark.lettersToRunes('And lo; "he" spoke in riddles.');
 

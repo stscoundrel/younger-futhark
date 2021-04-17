@@ -8,10 +8,10 @@ describe('Letter mapping tests', () => {
     expect(resultMap instanceof Map).toBeTruthy();
   });
 
-  test('Letter contains all common letters', () => {
+  test('Letter contains all common letters + space', () => {
     const resultMap = youngerFuthark.getLetterMapping();
 
-    expect(resultMap.size).toBe(39);
+    expect(resultMap.size).toBe(40);
 
     expect(resultMap.has('a')).toBeTruthy();
     expect(resultMap.has('á')).toBeTruthy();
@@ -92,5 +92,6 @@ describe('Letter mapping tests', () => {
     expect(resultMap.get('æ')).toBe('ᛅ');
     expect(resultMap.get('ö')).toBe('ᚢ');
     expect(resultMap.get('ø')).toBe('ᚢ');
+    expect(resultMap.get(' ')).toBe(':');
   });
 });
