@@ -8,10 +8,10 @@ describe('Rune mapping tests', () => {
     expect(resultMap instanceof Map).toBeTruthy();
   });
 
-  test('Runemap contains all 16 runes', () => {
+  test('Runemap contains all 16 runes + space', () => {
     const resultMap = youngerFuthark.getRuneMapping();
 
-    expect(resultMap.size).toBe(16);
+    expect(resultMap.size).toBe(17);
 
     expect(resultMap.has('ᚠ')).toBeTruthy();
     expect(resultMap.has('ᚢ')).toBeTruthy();
@@ -50,5 +50,6 @@ describe('Rune mapping tests', () => {
     expect(resultMap.get('ᛘ')).toBe('m');
     expect(resultMap.get('ᛚ')).toBe('l');
     expect(resultMap.get('ᛦ')).toBe('R');
+    expect(resultMap.get(':')).toBe(' ');
   });
 });
