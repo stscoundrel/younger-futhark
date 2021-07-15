@@ -39,6 +39,7 @@ export const getLetterMapping = (): Map<string, string> => {
   letterMapping.set('æ', 'ᛅ');
   letterMapping.set('ö', 'ᚢ');
   letterMapping.set('ø', 'ᚢ');
+  letterMapping.set('ǫ', 'ᚢ');
   letterMapping.set(' ', ':');
   return letterMapping;
 };
