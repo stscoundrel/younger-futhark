@@ -19,4 +19,13 @@ describe('Runes to letters transformation tests', () => {
 
     expect(result).toBe(expected);
   });
+
+  test('Transform alternative rune forms', () => {
+    const runes = 'ᚽᚿᛆᛌᛐ';
+    const expected = 'hnast';
+
+    const result = youngerFuthark.runesToLetters(runes);
+
+    expect(result).toBe(expected);
+  });
 });

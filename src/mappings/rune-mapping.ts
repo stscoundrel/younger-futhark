@@ -7,11 +7,16 @@ export const getRuneMapping = (): Map<string, string> => {
   runeMapping.set('ᚱ', 'r');
   runeMapping.set('ᚴ', 'k');
   runeMapping.set('ᚼ', 'h');
+  runeMapping.set('ᚽ', 'h');
   runeMapping.set('ᚾ', 'n');
+  runeMapping.set('ᚿ', 'n');
   runeMapping.set('ᛁ', 'i');
   runeMapping.set('ᛅ', 'a');
+  runeMapping.set('ᛆ', 'a');
   runeMapping.set('ᛋ', 's');
+  runeMapping.set('ᛌ', 's');
   runeMapping.set('ᛏ', 't');
+  runeMapping.set('ᛐ', 't');
   runeMapping.set('ᛒ', 'b');
   runeMapping.set('ᛘ', 'm');
   runeMapping.set('ᛚ', 'l');
