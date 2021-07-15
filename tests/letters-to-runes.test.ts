@@ -55,4 +55,12 @@ describe('Letters to runes transformation tests', () => {
 
     expect(result).toEqual(expected);
   });
+
+  test('Transforms ǫ (issue #53).', () => {
+    const expected = 'ᚢ';
+
+    const result = youngerFuthark.lettersToRunes('ǫ');
+
+    expect(result).toEqual(expected);
+  });
 });

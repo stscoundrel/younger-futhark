@@ -8,50 +8,6 @@ describe('Letter mapping tests', () => {
     expect(resultMap instanceof Map).toBeTruthy();
   });
 
-  test('Letter contains all common letters + space', () => {
-    const resultMap = youngerFuthark.getLetterMapping();
-
-    expect(resultMap.size).toBe(40);
-
-    expect(resultMap.has('a')).toBeTruthy();
-    expect(resultMap.has('á')).toBeTruthy();
-    expect(resultMap.has('b')).toBeTruthy();
-    expect(resultMap.has('c')).toBeTruthy();
-    expect(resultMap.has('d')).toBeTruthy();
-    expect(resultMap.has('e')).toBeTruthy();
-    expect(resultMap.has('é')).toBeTruthy();
-    expect(resultMap.has('f')).toBeTruthy();
-    expect(resultMap.has('g')).toBeTruthy();
-    expect(resultMap.has('h')).toBeTruthy();
-    expect(resultMap.has('i')).toBeTruthy();
-    expect(resultMap.has('í')).toBeTruthy();
-    expect(resultMap.has('j')).toBeTruthy();
-    expect(resultMap.has('k')).toBeTruthy();
-    expect(resultMap.has('l')).toBeTruthy();
-    expect(resultMap.has('m')).toBeTruthy();
-    expect(resultMap.has('n')).toBeTruthy();
-    expect(resultMap.has('o')).toBeTruthy();
-    expect(resultMap.has('ó')).toBeTruthy();
-    expect(resultMap.has('p')).toBeTruthy();
-    expect(resultMap.has('q')).toBeTruthy();
-    expect(resultMap.has('r')).toBeTruthy();
-    expect(resultMap.has('s')).toBeTruthy();
-    expect(resultMap.has('t')).toBeTruthy();
-    expect(resultMap.has('u')).toBeTruthy();
-    expect(resultMap.has('ú')).toBeTruthy();
-    expect(resultMap.has('v')).toBeTruthy();
-    expect(resultMap.has('w')).toBeTruthy();
-    expect(resultMap.has('x')).toBeTruthy();
-    expect(resultMap.has('y')).toBeTruthy();
-    expect(resultMap.has('ý')).toBeTruthy();
-    expect(resultMap.has('z')).toBeTruthy();
-    expect(resultMap.has('å')).toBeTruthy();
-    expect(resultMap.has('ä')).toBeTruthy();
-    expect(resultMap.has('æ')).toBeTruthy();
-    expect(resultMap.has('ö')).toBeTruthy();
-    expect(resultMap.has('ø')).toBeTruthy();
-  });
-
   test('Common letters have matching runes', () => {
     const resultMap = youngerFuthark.getLetterMapping();
 
@@ -92,6 +48,7 @@ describe('Letter mapping tests', () => {
     expect(resultMap.get('æ')).toBe('ᛅ');
     expect(resultMap.get('ö')).toBe('ᚢ');
     expect(resultMap.get('ø')).toBe('ᚢ');
+    expect(resultMap.get('ǫ')).toBe('ᚢ');
     expect(resultMap.get(' ')).toBe(':');
   });
 });
