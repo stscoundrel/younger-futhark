@@ -104,3 +104,4 @@ dist
 .tern-port
 /reports
 /.stryker-tmp
+.DS_Store
