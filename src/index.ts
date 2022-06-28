@@ -1,31 +1,39 @@
 import { getRuneMapping } from './mappings/rune-mapping';
-import { getLetterMapping } from './mappings/letter-mapping';
+import { getLettersToLongBranchRunesMapping, getLettersToShortTwigRunesMapping } from './mappings/letter-mapping';
+import { transform } from './transform';
 
-const transform = (content: string, dictionary: Map<string, string>) : string => {
-  let result = '';
-  const parts: string[] = content.split('');
+export enum Variant {
+  LongBranch = 'LONG_BRANCH',
+  ShortTwig = 'SHORTTWIG'
+}
 
-  parts.forEach((part) => {
-    const partKey = part.toLocaleLowerCase();
-
-    if (dictionary.has(partKey)) {
-      result += dictionary.get(partKey);
-    } else {
-      result += part;
-    }
-  });
-
-  return result;
-};
-
-export const lettersToRunes = (content: string) : string => {
-  const letterMapping = getLetterMapping();
+export const lettersToLongBranchRunes = (content: string): string => {
+  const letterMapping = getLettersToLongBranchRunesMapping();
   const result = transform(content, letterMapping);
 
   return result;
 };
 
-export const runesToLetters = (content: string) : string => {
+export const lettersToShortTwigRunes = (content: string): string => {
+  const letterMapping = getLettersToShortTwigRunesMapping();
+  const result = transform(content, letterMapping);
+
+  return result;
+};
+
+// For backwards compatibility & similar interface for other rune libs.
+export const lettersToRunes = (
+  content: string,
+  variant: Variant = Variant.LongBranch,
+): string => {
+  if (variant === Variant.ShortTwig) {
+    return lettersToShortTwigRunes(content);
+  }
+
+  return lettersToLongBranchRunes(content);
+};
+
+export const runesToLetters = (content: string): string => {
   const runeMapping = getRuneMapping();
   const result = transform(content, runeMapping);
 
@@ -35,6 +43,11 @@ export const runesToLetters = (content: string) : string => {
 export default {
   lettersToRunes,
   runesToLetters,
+  lettersToLongBranchRunes,
+  lettersToShortTwigRunes,
   getRuneMapping,
-  getLetterMapping,
+  getLetterMapping: getLettersToLongBranchRunesMapping,
+  getLettersToLongBranchRunesMapping,
+  getLettersToShortTwigRunesMapping,
+  Variant,
 };

@@ -1,4 +1,4 @@
-import youngerFuthark from '../src';
+import youngerFuthark, { Variant } from '../src';
 
 describe('Letters to runes transformation tests', () => {
   test('Does not transform not-found characters', () => {
@@ -9,13 +9,42 @@ describe('Letters to runes transformation tests', () => {
     expect(result).toBe(original);
   });
 
-  test('Transforms letters to runes', () => {
-    const letters = 'fuþark';
-    const expected = 'ᚠᚢᚦᛅᚱᚴ';
+  test('Transforms letters to runes (default)', () => {
+    const content = 'aábcdðeéfghiíjklmnoópqrstþuúvwxyýzåäæöøǫþ';
+    const expected = 'ᛅᛅᛒᛋᛏᚦᛁᛁᚠᚴᚼᛁᛁᛁᚴᛚᛘᚾᚢᚢᛒᚴᚱᛋᛏᚦᚢᚢᚢᚢᛋᚢᚢᛋᚢᛅᛅᚢᚢᚢᚦ';
 
-    const result = youngerFuthark.lettersToRunes(letters);
+    const result = youngerFuthark.lettersToRunes(content);
 
     expect(result).toBe(expected);
+  });
+
+  test('Transforms letters to runes (long branch)', () => {
+    const content = 'aábcdðeéfghiíjklmnoópqrstþuúvwxyýzåäæöøǫþ';
+    const expected = 'ᛅᛅᛒᛋᛏᚦᛁᛁᚠᚴᚼᛁᛁᛁᚴᛚᛘᚾᚢᚢᛒᚴᚱᛋᛏᚦᚢᚢᚢᚢᛋᚢᚢᛋᚢᛅᛅᚢᚢᚢᚦ';
+
+    const result = youngerFuthark.lettersToLongBranchRunes(content);
+
+    expect(result).toBe(expected);
+  });
+
+  test('Transforms letters to runes (short twig)', () => {
+    const content = 'aábcdðeéfghiíjklmnoópqrstþuúvwxyýzåäæöøǫþ';
+    const expected = 'ᛆᛆᛒᛌᛐᚦᛁᛁᚠᚴᚽᛁᛁᛁᚴᛚᛘᚿᚢᚢᛒᚴᚱᛌᛐᚦᚢᚢᚢᚢᛌᚢᚢᛌᚢᛆᛆᚢᚢᚢᚦ';
+
+    const result = youngerFuthark.lettersToShortTwigRunes(content);
+
+    expect(result).toBe(expected);
+  });
+
+  test('Transforms letters to runes with given variant', () => {
+    const content = 'aábcdðeéfghiíjklmnoópqrstþuúvwxyýzåäæöøǫþ';
+    const expectedLongBranch = 'ᛅᛅᛒᛋᛏᚦᛁᛁᚠᚴᚼᛁᛁᛁᚴᛚᛘᚾᚢᚢᛒᚴᚱᛋᛏᚦᚢᚢᚢᚢᛋᚢᚢᛋᚢᛅᛅᚢᚢᚢᚦ';
+    const expectedShortTwig = 'ᛆᛆᛒᛌᛐᚦᛁᛁᚠᚴᚽᛁᛁᛁᚴᛚᛘᚿᚢᚢᛒᚴᚱᛌᛐᚦᚢᚢᚢᚢᛌᚢᚢᛌᚢᛆᛆᚢᚢᚢᚦ';
+    const longBranchResult = youngerFuthark.lettersToRunes(content, Variant.LongBranch);
+    const shortTwigResult = youngerFuthark.lettersToRunes(content, Variant.ShortTwig);
+
+    expect(longBranchResult).toBe(expectedLongBranch);
+    expect(shortTwigResult).toBe(expectedShortTwig);
   });
 
   test('Transforms full sentence to runes', () => {

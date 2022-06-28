@@ -1,7 +1,7 @@
 module.exports = {
   extends: [
-    'plugin:@typescript-eslint/recommended',
     'airbnb-base',
+    'plugin:@typescript-eslint/recommended',
   ],
   plugins: [
     'jest',
@@ -15,5 +15,7 @@ module.exports = {
   rules: {
     'import/extensions': 0,
     'import/no-unresolved': 0,
+    'no-shadow': 'off',
+    '@typescript-eslint/no-shadow': ['error'],
   },
 };
