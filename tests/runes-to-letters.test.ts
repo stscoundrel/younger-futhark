@@ -2,12 +2,16 @@ import youngerFuthark from '../src';
 
 describe('Runes to letters transformation tests', () => {
   test('Transforms runes to letters', () => {
-    const runes = 'ᚠᚢᚦᛅᚱᚴ';
-    const expected = 'fuþark';
+    const longBranchRunes = 'ᚠᚢᚦᚬᚱᚴᚼᚽᚾᚿᛁᛅᛆᛋᛌᛏᛐᛒᛘᛚᛦ:';
+    const shortTwigRunes = 'ᚠᚢᚦᚬᚱᚴᚽᚽᚿᚿᛁᛆᛆᛌᛌᛐᛐᛒᛘᛚᛦ:';
+    const expected = 'fuþorkhhnniaassttbmlR ';
 
-    const result = youngerFuthark.runesToLetters(runes);
+    // Both rune styles should produce same letters
+    const result1 = youngerFuthark.runesToLetters(longBranchRunes);
+    const result2 = youngerFuthark.runesToLetters(shortTwigRunes);
 
-    expect(result).toBe(expected);
+    expect(result1).toBe(expected);
+    expect(result2).toBe(expected);
   });
 
   test('Transforms full rune sentence', () => {

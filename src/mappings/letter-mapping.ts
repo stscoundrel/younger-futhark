@@ -1,4 +1,4 @@
-export const getLetterMapping = (): Map<string, string> => {
+export const getLettersToLongBranchRunesMapping = (): Map<string, string> => {
   const letterMapping = new Map();
   letterMapping.set('a', 'ᛅ');
   letterMapping.set('á', 'ᛅ');
@@ -44,6 +44,53 @@ export const getLetterMapping = (): Map<string, string> => {
   return letterMapping;
 };
 
+export const getLettersToShortTwigRunesMapping = (): Map<string, string> => {
+  const letterMapping = new Map();
+  letterMapping.set('a', 'ᛆ');
+  letterMapping.set('á', 'ᛆ');
+  letterMapping.set('b', 'ᛒ');
+  letterMapping.set('c', 'ᛌ');
+  letterMapping.set('d', 'ᛐ');
+  letterMapping.set('ð', 'ᚦ');
+  letterMapping.set('e', 'ᛁ');
+  letterMapping.set('é', 'ᛁ');
+  letterMapping.set('f', 'ᚠ');
+  letterMapping.set('g', 'ᚴ');
+  letterMapping.set('h', 'ᚽ');
+  letterMapping.set('i', 'ᛁ');
+  letterMapping.set('í', 'ᛁ');
+  letterMapping.set('j', 'ᛁ');
+  letterMapping.set('k', 'ᚴ');
+  letterMapping.set('l', 'ᛚ');
+  letterMapping.set('m', 'ᛘ');
+  letterMapping.set('n', 'ᚿ');
+  letterMapping.set('o', 'ᚢ');
+  letterMapping.set('ó', 'ᚢ');
+  letterMapping.set('p', 'ᛒ');
+  letterMapping.set('q', 'ᚴ');
+  letterMapping.set('r', 'ᚱ');
+  letterMapping.set('s', 'ᛌ');
+  letterMapping.set('t', 'ᛐ');
+  letterMapping.set('þ', 'ᚦ');
+  letterMapping.set('u', 'ᚢ');
+  letterMapping.set('ú', 'ᚢ');
+  letterMapping.set('v', 'ᚢ');
+  letterMapping.set('w', 'ᚢ');
+  letterMapping.set('x', 'ᛌ');
+  letterMapping.set('y', 'ᚢ');
+  letterMapping.set('ý', 'ᚢ');
+  letterMapping.set('z', 'ᛌ');
+  letterMapping.set('å', 'ᚢ');
+  letterMapping.set('ä', 'ᛆ');
+  letterMapping.set('æ', 'ᛆ');
+  letterMapping.set('ö', 'ᚢ');
+  letterMapping.set('ø', 'ᚢ');
+  letterMapping.set('ǫ', 'ᚢ');
+  letterMapping.set(' ', ':');
+  return letterMapping;
+};
+
 export default {
-  getLetterMapping,
+  getLettersToLongBranchRunesMapping,
+  getLettersToShortTwigRunesMapping,
 };
