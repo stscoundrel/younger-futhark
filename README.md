@@ -6,6 +6,7 @@ Other runic alphabets:
 - [Elder Futhark](https://github.com/stscoundrel/elder-futhark)
 - [Futhorc (Anglo-Saxon runes)](https://github.com/stscoundrel/futhorc)
 - [Futhork (Medieval runes)](https://github.com/stscoundrel/futhork)
+- [Staveless Futhark](https://github.com/stscoundrel/staveless-futhark)
 
 ### Install
 
