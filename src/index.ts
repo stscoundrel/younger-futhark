@@ -1,4 +1,4 @@
-import { getRuneMapping } from './mappings/rune-mapping';
+import { getRuneMapping, getLongBranchRuneMapping, getShortTwigRuneMapping } from './mappings/rune-mapping';
 import { getLettersToLongBranchRunesMapping, getLettersToShortTwigRunesMapping } from './mappings/letter-mapping';
 import { transform } from './transform';
 
@@ -46,6 +46,8 @@ export default {
   lettersToLongBranchRunes,
   lettersToShortTwigRunes,
   getRuneMapping,
+  getLongBranchRuneMapping,
+  getShortTwigRuneMapping,
   getLetterMapping: getLettersToLongBranchRunesMapping,
   getLettersToLongBranchRunesMapping,
   getLettersToShortTwigRunesMapping,
