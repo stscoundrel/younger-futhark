@@ -10,8 +10,8 @@ describe('Letters to runes transformation tests', () => {
   });
 
   test('Transforms letters to runes (default)', () => {
-    const content = 'aábcdðeéfghiíjklmnoópqrstþuúvwxyýzåäæöøǫþ';
-    const expected = 'ᛅᛅᛒᛋᛏᚦᛁᛁᚠᚴᚼᛁᛁᛁᚴᛚᛘᚾᚢᚢᛒᚴᚱᛋᛏᚦᚢᚢᚢᚢᛋᚢᚢᛋᚢᛅᛅᚢᚢᚢᚦ';
+    const content = 'aábcdðeéfghiíjklmnoópqrstþuúvwxyýzåäæœöøǫþ';
+    const expected = 'ᛅᛅᛒᛋᛏᚦᛁᛁᚠᚴᚼᛁᛁᛁᚴᛚᛘᚾᚢᚢᛒᚴᚱᛋᛏᚦᚢᚢᚢᚢᛋᚢᚢᛋᚢᛅᛅᚢᚢᚢᚢᚦ';
 
     const result = youngerFuthark.lettersToRunes(content);
 
@@ -19,8 +19,8 @@ describe('Letters to runes transformation tests', () => {
   });
 
   test('Transforms letters to runes (long branch)', () => {
-    const content = 'aábcdðeéfghiíjklmnoópqrstþuúvwxyýzåäæöøǫþ';
-    const expected = 'ᛅᛅᛒᛋᛏᚦᛁᛁᚠᚴᚼᛁᛁᛁᚴᛚᛘᚾᚢᚢᛒᚴᚱᛋᛏᚦᚢᚢᚢᚢᛋᚢᚢᛋᚢᛅᛅᚢᚢᚢᚦ';
+    const content = 'aábcdðeéfghiíjklmnoópqrstþuúvwxyýzåäæœöøǫþ';
+    const expected = 'ᛅᛅᛒᛋᛏᚦᛁᛁᚠᚴᚼᛁᛁᛁᚴᛚᛘᚾᚢᚢᛒᚴᚱᛋᛏᚦᚢᚢᚢᚢᛋᚢᚢᛋᚢᛅᛅᚢᚢᚢᚢᚦ';
 
     const result = youngerFuthark.lettersToLongBranchRunes(content);
 
@@ -28,8 +28,8 @@ describe('Letters to runes transformation tests', () => {
   });
 
   test('Transforms letters to runes (short twig)', () => {
-    const content = 'aábcdðeéfghiíjklmnoópqrstþuúvwxyýzåäæöøǫþ';
-    const expected = 'ᛆᛆᛒᛌᛐᚦᛁᛁᚠᚴᚽᛁᛁᛁᚴᛚᛘᚿᚢᚢᛒᚴᚱᛌᛐᚦᚢᚢᚢᚢᛌᚢᚢᛌᚢᛆᛆᚢᚢᚢᚦ';
+    const content = 'aábcdðeéfghiíjklmnoópqrstþuúvwxyýzåäæœöøǫþ';
+    const expected = 'ᛆᛆᛒᛌᛐᚦᛁᛁᚠᚴᚽᛁᛁᛁᚴᛚᛘᚿᚢᚢᛒᚴᚱᛌᛐᚦᚢᚢᚢᚢᛌᚢᚢᛌᚢᛆᛆᚢᚢᚢᚢᚦ';
 
     const result = youngerFuthark.lettersToShortTwigRunes(content);
 
@@ -37,9 +37,9 @@ describe('Letters to runes transformation tests', () => {
   });
 
   test('Transforms letters to runes with given variant', () => {
-    const content = 'aábcdðeéfghiíjklmnoópqrstþuúvwxyýzåäæöøǫþ';
-    const expectedLongBranch = 'ᛅᛅᛒᛋᛏᚦᛁᛁᚠᚴᚼᛁᛁᛁᚴᛚᛘᚾᚢᚢᛒᚴᚱᛋᛏᚦᚢᚢᚢᚢᛋᚢᚢᛋᚢᛅᛅᚢᚢᚢᚦ';
-    const expectedShortTwig = 'ᛆᛆᛒᛌᛐᚦᛁᛁᚠᚴᚽᛁᛁᛁᚴᛚᛘᚿᚢᚢᛒᚴᚱᛌᛐᚦᚢᚢᚢᚢᛌᚢᚢᛌᚢᛆᛆᚢᚢᚢᚦ';
+    const content = 'aábcdðeéfghiíjklmnoópqrstþuúvwxyýzåäæœöøǫþ';
+    const expectedLongBranch = 'ᛅᛅᛒᛋᛏᚦᛁᛁᚠᚴᚼᛁᛁᛁᚴᛚᛘᚾᚢᚢᛒᚴᚱᛋᛏᚦᚢᚢᚢᚢᛋᚢᚢᛋᚢᛅᛅᚢᚢᚢᚢᚦ';
+    const expectedShortTwig = 'ᛆᛆᛒᛌᛐᚦᛁᛁᚠᚴᚽᛁᛁᛁᚴᛚᛘᚿᚢᚢᛒᚴᚱᛌᛐᚦᚢᚢᚢᚢᛌᚢᚢᛌᚢᛆᛆᚢᚢᚢᚢᚦ';
     const longBranchResult = youngerFuthark.lettersToRunes(content, Variant.LongBranch);
     const shortTwigResult = youngerFuthark.lettersToRunes(content, Variant.ShortTwig);
 

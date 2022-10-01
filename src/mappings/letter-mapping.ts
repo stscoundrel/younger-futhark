@@ -37,6 +37,7 @@ export const getLettersToLongBranchRunesMapping = (): Map<string, string> => {
   letterMapping.set('å', 'ᚢ');
   letterMapping.set('ä', 'ᛅ');
   letterMapping.set('æ', 'ᛅ');
+  letterMapping.set('œ', 'ᚢ');
   letterMapping.set('ö', 'ᚢ');
   letterMapping.set('ø', 'ᚢ');
   letterMapping.set('ǫ', 'ᚢ');
@@ -83,6 +84,7 @@ export const getLettersToShortTwigRunesMapping = (): Map<string, string> => {
   letterMapping.set('å', 'ᚢ');
   letterMapping.set('ä', 'ᛆ');
   letterMapping.set('æ', 'ᛆ');
+  letterMapping.set('œ', 'ᚢ');
   letterMapping.set('ö', 'ᚢ');
   letterMapping.set('ø', 'ᚢ');
   letterMapping.set('ǫ', 'ᚢ');
